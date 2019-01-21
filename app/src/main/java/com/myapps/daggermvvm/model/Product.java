@@ -16,7 +16,7 @@ public class Product {
     private String category;
     @SerializedName("price")
     @Expose
-    private Double price;
+    private Double price = 0.0;
     @SerializedName("img_url")
     @Expose
     private String imgUrl;

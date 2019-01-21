@@ -6,9 +6,11 @@
 
         <variable
             name="productDetailVM"
-            type="com.myapps.daggermvvm.ProductDetailViewModel" />
+            type="com.myapps.daggermvvm.product_details.ProductDetailViewModel" />
 
-        <import type="com.myapps.daggermvvm.PriceUtil" />
+        <import type="com.myapps.daggermvvm.util.PriceUtil" />
+
+        <import type="android.view.View" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -73,6 +75,13 @@
             </LinearLayout>
 
         </ScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="@{productDetailVM.loaded ? View.GONE : View.VISIBLE}" />
 
     </android.support.design.widget.CoordinatorLayout>
 

@@ -1,14 +1,16 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.product_details;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.myapps.daggermvvm.BR;
+import com.myapps.daggermvvm.data.ApiReqModule;
 import com.myapps.daggermvvm.data.ApiService;
 import com.myapps.daggermvvm.data.CatalogRepository;
 import com.myapps.daggermvvm.model.Product;
@@ -16,8 +18,19 @@ import com.myapps.daggermvvm.model.Product;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class ProductDetailViewModel extends ViewModel {
+public class ProductDetailViewModel extends BaseObservable {
     private MutableLiveData<Product> product;
+    private boolean isLoaded;
+
+    public boolean isLoaded() {
+        return isLoaded;
+    }
+
+    @Bindable
+    public void setLoaded(boolean loaded) {
+        isLoaded = loaded;
+        notifyPropertyChanged(BR._all);
+    }
 
     private int prodID;
 
@@ -43,7 +56,8 @@ public class ProductDetailViewModel extends ViewModel {
     }
 
     public void loadProduct(Context c) {
-        ApiService apiService = NetworkModule.getRetrofit(c).create(
+        isLoaded = false;
+        ApiService apiService = ApiReqModule.getRetrofit(c).create(
                 ApiService.class
         );
 
@@ -65,22 +79,18 @@ public class ProductDetailViewModel extends ViewModel {
                 Log.e("PRoduct", " " + new Gson().toJson(
                         freshProduct
                 ));
-
-
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
                 e.printStackTrace();
                 Log.e("PRoduct", " Exc: " + e.toString());
- /*               isLoading.set(false);
-                toastUtil.showLongMessage("Unable to sync with server!");
-                showError.set(true);*/
             }
 
             @Override
             public void onComplete() {
                 //             isLoading.set(false);
+                setLoaded(true);
             }
         });
     }

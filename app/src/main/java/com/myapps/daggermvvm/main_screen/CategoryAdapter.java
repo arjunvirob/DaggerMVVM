@@ -1,4 +1,4 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.main_screen;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.myapps.daggermvvm.R;
 import com.myapps.daggermvvm.databinding.CategoryListItemBinding;
 import com.myapps.daggermvvm.model.Category;
+import com.myapps.daggermvvm.product_list.ProductListActivity;
+import com.myapps.daggermvvm.util.ImageUtil;
 
 import java.util.List;
 

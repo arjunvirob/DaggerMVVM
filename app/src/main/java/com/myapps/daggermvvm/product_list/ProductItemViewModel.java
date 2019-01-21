@@ -1,4 +1,4 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.product_list;
 
 import android.databinding.BaseObservable;
 

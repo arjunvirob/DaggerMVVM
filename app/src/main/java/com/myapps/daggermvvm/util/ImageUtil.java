@@ -1,4 +1,4 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.util;
 
 import android.databinding.BindingAdapter;
 

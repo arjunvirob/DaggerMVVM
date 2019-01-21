@@ -1,9 +1,7 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.product_list;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.databinding.Bindable;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.myapps.daggermvvm.product_details.ProductDetailActivity;
+import com.myapps.daggermvvm.R;
 import com.myapps.daggermvvm.databinding.ProductListItemBinding;
 import com.myapps.daggermvvm.model.Product;
+import com.myapps.daggermvvm.util.ImageUtil;
 
 import java.util.List;
 

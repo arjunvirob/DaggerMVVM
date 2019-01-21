@@ -1,14 +1,14 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.product_list;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
 
+import com.myapps.daggermvvm.BR;
+import com.myapps.daggermvvm.data.ApiReqModule;
 import com.myapps.daggermvvm.data.ApiService;
 import com.myapps.daggermvvm.data.CatalogRepository;
 import com.myapps.daggermvvm.model.Product;
@@ -39,7 +39,7 @@ public class ProductListViewModel extends BaseObservable {
     }
 
     public void loadProducts(Context context) {
-        ApiService apiService = NetworkModule.getRetrofit(context).create(ApiService.class);
+        ApiService apiService = ApiReqModule.getRetrofit(context).create(ApiService.class);
         CatalogRepository catalogRepository = new CatalogRepository(apiService);
 
         catalogRepository.getProductsFromCategory(1, category).subscribe(new Observer<List<Product>>() {

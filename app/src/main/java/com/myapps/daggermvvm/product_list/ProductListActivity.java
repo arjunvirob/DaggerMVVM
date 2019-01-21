@@ -1,10 +1,11 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.product_list;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 
+import com.myapps.daggermvvm.R;
 import com.myapps.daggermvvm.databinding.ActivityProductListBinding;
 
 public class ProductListActivity extends AppCompatActivity {

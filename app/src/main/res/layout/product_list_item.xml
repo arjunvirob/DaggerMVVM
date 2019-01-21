@@ -4,11 +4,11 @@
 
     <data>
 
-        <import type="com.myapps.daggermvvm.PriceUtil" />
+        <import type="com.myapps.daggermvvm.util.PriceUtil" />
 
         <variable
             name="productItemViewModel"
-            type="com.myapps.daggermvvm.ProductItemViewModel" />
+            type="com.myapps.daggermvvm.product_list.ProductItemViewModel" />
 
     </data>
 

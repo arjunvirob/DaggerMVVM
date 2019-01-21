@@ -5,7 +5,7 @@
 
         <variable
             name="categoryItemViewModel"
-            type="com.myapps.daggermvvm.CategoryItemViewModel" />
+            type="com.myapps.daggermvvm.main_screen.CategoryItemViewModel" />
     </data>
 
     <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"

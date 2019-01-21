@@ -7,7 +7,7 @@
 
         <variable
             name="mainScreenViewModel"
-            type="com.myapps.daggermvvm.MainScreenViewModel" />
+            type="com.myapps.daggermvvm.main_screen.MainScreenViewModel" />
     </data>
 
     <LinearLayout

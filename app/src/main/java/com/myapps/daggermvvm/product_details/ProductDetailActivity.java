@@ -1,11 +1,12 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.product_details;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
+import com.myapps.daggermvvm.R;
 import com.myapps.daggermvvm.databinding.ActivityProductDetailBinding;
+import com.myapps.daggermvvm.util.ImageUtil;
 
 public class ProductDetailActivity extends AppCompatActivity {
 

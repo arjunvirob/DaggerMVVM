@@ -1,15 +1,13 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.main_screen;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 
+import com.myapps.daggermvvm.R;
 import com.myapps.daggermvvm.databinding.ActivityMainBinding;
-import com.myapps.daggermvvm.model.Category;
 
 public class MainActivity extends AppCompatActivity {
     private Activity activity;

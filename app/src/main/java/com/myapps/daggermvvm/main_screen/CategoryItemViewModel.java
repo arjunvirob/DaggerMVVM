@@ -1,4 +1,4 @@
-package com.myapps.daggermvvm;
+package com.myapps.daggermvvm.main_screen;
 
 import android.arch.lifecycle.ViewModel;
 

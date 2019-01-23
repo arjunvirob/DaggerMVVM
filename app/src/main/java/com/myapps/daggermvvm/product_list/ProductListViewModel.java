@@ -8,8 +8,6 @@ import android.databinding.Bindable;
 import android.support.annotation.NonNull;
 
 import com.myapps.daggermvvm.BR;
-import com.myapps.daggermvvm.data.ApiReqModule;
-import com.myapps.daggermvvm.data.ApiService;
 import com.myapps.daggermvvm.data.CatalogRepository;
 import com.myapps.daggermvvm.model.Product;
 
@@ -21,6 +19,8 @@ import io.reactivex.disposables.Disposable;
 public class ProductListViewModel extends BaseObservable {
     private String category;
     private boolean isLoading = true;
+
+    CatalogRepository catalogRepository;
 
     @Bindable
     public boolean isLoading() {
@@ -39,8 +39,8 @@ public class ProductListViewModel extends BaseObservable {
     }
 
     public void loadProducts(Context context) {
-        ApiService apiService = ApiReqModule.getRetrofit(context).create(ApiService.class);
-        CatalogRepository catalogRepository = new CatalogRepository(apiService);
+     /*   ApiService apiService = ApiReqModule.getRetrofit(context).create(ApiService.class);
+        CatalogRepository catalogRepository = new CatalogRepository(apiService);*/
 
         catalogRepository.getProductsFromCategory(1, category).subscribe(new Observer<List<Product>>() {
             @Override
@@ -66,8 +66,9 @@ public class ProductListViewModel extends BaseObservable {
         });
     }
 
-    public LiveData<List<Product>> getProducts(Context context) {
+    public LiveData<List<Product>> getProducts(Context context, CatalogRepository catalogRepository) {
         //if the list is null
+        this.catalogRepository = catalogRepository;
         if (productAre == null) {
             productAre = new MutableLiveData<>();
             //we will load it asynchronously from server in this method

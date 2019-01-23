@@ -5,11 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 
+import com.myapps.daggermvvm.MyApp;
 import com.myapps.daggermvvm.R;
+import com.myapps.daggermvvm.data.CatalogRepository;
 import com.myapps.daggermvvm.databinding.ActivityProductListBinding;
+
+import javax.inject.Inject;
 
 public class ProductListActivity extends AppCompatActivity {
     ActivityProductListBinding activityProductListBinding;
+
+    @Inject
+    CatalogRepository catalogRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +31,13 @@ public class ProductListActivity extends AppCompatActivity {
         String category = getIntent().getStringExtra("Category");
         getSupportActionBar().setTitle(category);
 
+        MyApp.getAppComponent().inject(this);
+
         ProductListViewModel productListViewModel = new ProductListViewModel(category);
 
         activityProductListBinding.setProductListViewModel(productListViewModel);
 
-        productListViewModel.loadProducts(this);
-
-        productListViewModel.getProducts(this).
+        productListViewModel.getProducts(this, catalogRepository).
                 observe(this, products ->
                         activityProductListBinding.productRv.setAdapter(new ProductsAdapter(products
                                 , this)));

@@ -1,23 +1,23 @@
 package com.myapps.daggermvvm.data;
 
 
-import android.support.annotation.NonNull;
-
 import com.myapps.daggermvvm.model.Product;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
+@Singleton
 public class CatalogRepository {
     private ApiService apiService;
 
+    @Inject
     public CatalogRepository(ApiService apiService) {
         this.apiService = apiService;
     }

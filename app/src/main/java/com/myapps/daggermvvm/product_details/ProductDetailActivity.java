@@ -16,6 +16,8 @@ public class ProductDetailActivity extends AppCompatActivity {
         ActivityProductDetailBinding activityProductDetailBinding =
                 DataBindingUtil.setContentView(this, R.layout.activity_product_detail);
 
+        //  MyApp.component(this).inject(this);
+
         int prodId = getIntent().getIntExtra("PRODUCT_ID", 0);
 
         ProductDetailViewModel productDetailViewModel = new ProductDetailViewModel(
@@ -29,7 +31,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                             product.getImgUrl());
                     activityProductDetailBinding.setProductDetailVM(productDetailViewModel);
 
-                getSupportActionBar().setTitle(product.getName());
+                    getSupportActionBar().setTitle(product.getName());
                 }
         );
     }

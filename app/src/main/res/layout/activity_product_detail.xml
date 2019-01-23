@@ -45,7 +45,7 @@
                         android:layout_marginTop="5dp"
                         android:lines="1"
                         android:padding="8dp"
-                        android:text="@{productDetailVM.product.getValue().name}"
+                        android:text="@{productDetailVM.product.name}"
                         android:textColor="#000000"
                         android:textSize="14sp" />
 
@@ -53,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
-                        android:text="@{PriceUtil.getPriceInRs(productDetailVM.product.getValue().price)}"
+                        android:text="@{PriceUtil.getPriceInRs(productDetailVM.product.price)}"
                         android:textColor="#000000"
                         android:textSize="16sp" />
 

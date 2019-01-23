@@ -1,7 +1,6 @@
 package com.myapps.daggermvvm.product_details;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -22,11 +21,11 @@ public class ProductDetailViewModel extends BaseObservable {
     private MutableLiveData<Product> product;
     private boolean isLoaded;
 
+    @Bindable
     public boolean isLoaded() {
         return isLoaded;
     }
 
-    @Bindable
     public void setLoaded(boolean loaded) {
         isLoaded = loaded;
         notifyPropertyChanged(BR._all);
@@ -57,7 +56,7 @@ public class ProductDetailViewModel extends BaseObservable {
 
     public void loadProduct(Context c) {
         isLoaded = false;
-        ApiService apiService = ApiReqModule.getRetrofit(c).create(
+        ApiService apiService = ApiReqModule.getRetrofit().create(
                 ApiService.class
         );
 
